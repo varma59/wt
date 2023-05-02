@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <script>
+        function validateForm() {
+            var fname = document.forms["rform"]["fname"].value;
+            var lname = document.forms["rform"]["lname"].value;
+            var email = document.forms["rform"]["email"].value;
+            var phno = document.forms["rform"]["phno"].value;
+            var addr = document.forms["rform"]["addr"].value;
+
+            if (fname.length < 6) {
+                alert("First Name should be at least 6 characters long");
+                return false;
+            }
+
+            if (lname === "") {
+                alert("Last Name cannot be empty");
+                return false;
+            }
+
+            if (email === "" || !validateEmail(email)) {
+                alert("Invalid Email");
+                return false;
+            }
+
+            if (phno.length !== 10 || isNaN(phno)) {
+                alert("Mobile Number should be a 10-digit number");
+                return false;
+            }
+
+            if (addr === "") {
+                alert("Address cannot be empty");
+                return false;
+            }
+
+            return true;
+        }
+
+        function validateEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <form name="rform" onsubmit="return validateForm()">
+            <label>First Name <input type="text" name="fname"></label><br>
+            <label>Last Name <input type="text" name="lname"></label><br>
+            <label>Email <input type="email" name="email"></label><br>
+            <label>Phone Number <input type="tel" name="phno"></label><br>
+            <label>Address <input type="text" name="addr"></label><br>
+            <input type="submit" value="Register">
+        </form>
+    </center>
+</body>
+</html>

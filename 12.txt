@@ -1,0 +1,60 @@
+Set 12
+SHC.xml
+<?xml version="1.0"?>
+<hardware 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="SHC.xsd">
+<component>
+	<core speed="10">i7</core>
+	<ram type="ssd">512</ram>
+	<rom company="HP">1TB</rom>
+</component>
+<component>
+	<core speed="10">i9</core>
+	<ram type="ssd">1024</ram>
+	<rom company="HP">2TB</rom>
+</component>
+</hardware>
+SHC.xsd
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="hardware">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="component" maxOccurs="unbounded">					
+					<xs:complexType>
+						<xs:sequence>
+						<xs:element name="core">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="xs:string">
+									<xs:attribute name="speed" type="xs:string" use="required"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+						</xs:element>
+						<xs:element name="ram">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="type" type="xs:string" use="required"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="rom">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="company" type="xs:string" fixed="HP"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

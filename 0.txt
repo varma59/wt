@@ -1,0 +1,826 @@
+﻿SET 7
+
+
+Set7.xml
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book SYSTEM "set7.dtd">
+<book>
+    <item>
+        <title words=”3”>DS</title>
+        <author>MANA</author>
+        <isbn>106462</isbn>
+        <publisher>jgh</publisher>
+        <edition>2</edition>
+        <price>500</price>
+    </item>
+    <item>
+        <title words=”3”>DS</title>
+        <author>MANA</author>
+        <isbn>106462</isbn>
+    </item>
+    <item>
+        <title words=”3”>DS</title>
+        <author>MANA</author>
+        <isbn>106462</isbn>
+    </item>
+</book>
+
+
+
+
+
+
+Set7.dtd
+
+
+
+
+<!ELEMENT book (item)+>
+<!ELEMENT item (title, author, isbn)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT isbn (#PCDATA)>
+<!ATTLIST title words #IMPLIED>
+
+
+
+
+
+
+
+
+
+
+SET-8
+
+
+
+
+Set8.xml
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE movies SYSTEM "movie.dtd">
+<movies>
+        <movie>
+                <title release="2020">abcd</title>
+                <hero multi="false" age="25">Bharath</hero>
+                <director mcount="1">Rakesh</director>
+                <genre type="Entertainer">comedy</genre>
+        </movie>
+</movies>
+
+
+
+
+Set8.dtd
+
+
+<!ELEMENT movies (movie)+>
+<!ELEMENT movie (title,hero,director,genre)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT hero (#PCDATA)>
+<!ELEMENT director (#PCDATA)>
+<!ELEMENT genre (#PCDATA)>
+<!ATTLIST title release CDATA "2019"> 
+<!ATTLIST hero 
+        multi CDATA "false"
+        age CDATA #IMPLIED
+>
+<!ATTLIST director mcount CDATA #REQUIRED>
+<!ATTLIST genre type CDATA #FIXED "Entertainer">
+
+
+
+
+
+
+SET-9
+
+
+Similar to above 2 questions
+
+
+
+
+
+
+
+
+
+
+SET-10
+
+
+Set10.xml
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<book xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="Set10.xsd">
+    <item>
+        <title>Example Book</title>
+        <author>John Doe</author>
+        <isbn>1234567890</isbn>
+        <publisher>Example Publisher</publisher>
+        <edition>First</edition>
+        <price>9.99</price>
+    </item>
+    <item>
+        <title>Example Book</title>
+        <author>John Doe</author>
+        <isbn>1234567890</isbn>
+        <publisher>Example Publisher</publisher>
+        <edition>First</edition>
+        <price>9.99</price>
+    </item>
+    <item>
+        <title>Example Book</title>
+    <author>John Doe</author>
+    <isbn>1234567890</isbn>
+    <publisher>Example Publisher</publisher>
+    <edition>First</edition>
+    <price>9.99</price>
+    </item>
+</book>
+
+
+
+
+
+
+Set10.xsd
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="book">*
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="title" type="xs:string"/>
+                            <xs:element name="author" type="xs:string"/>
+                            <xs:element name="isbn" type="xs:string"/>
+                            <xs:element name="publisher" type="xs:string"/>
+                            <xs:element name="edition" type="xs:string"/>
+                            <xs:element name="price" type="xs:decimal"/> 
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+
+
+
+
+
+
+
+
+SET-11
+
+
+Set11.xml
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<theatre xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="set11.1.xsd">
+         <movie>
+        <name>KILL BILL</name>
+        <ticket>80</ticket>
+        <rating max="5">4.5</rating>
+    </movie>
+    <movie>
+        <name>KILL BILL1</name>
+        <ticket>50</ticket>
+        <rating max="5">4.5</rating>
+    </movie>
+    <movie>
+        <name>KILL BILL2</name>
+        <ticket>40</ticket>
+        <rating max="5">4.5</rating>
+    </movie>
+
+
+</theatre>
+
+
+
+
+Set11.1.xsd
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="theatre">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="movie" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string" />
+                            <xs:element name="ticket" type="xs:string" />
+                            <xs:element name="rating">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="max" type="xs:string" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+</xs:schema>
+
+
+
+
+Set 12
+SHC.xml
+<?xml version="1.0"?>
+<hardware 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="SHC.xsd">
+<component>
+        <core speed="10">i7</core>
+        <ram type="ssd">512</ram>
+        <rom company="HP">1TB</rom>
+</component>
+<component>
+        <core speed="10">i9</core>
+        <ram type="ssd">1024</ram>
+        <rom company="HP">2TB</rom>
+</component>
+</hardware>
+SHC.xsd
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:element name="hardware">
+                <xs:complexType>
+                        <xs:sequence>
+                                <xs:element name="component" maxOccurs="unbounded">                                        
+                                        <xs:complexType>
+                                                <xs:sequence>
+                                                <xs:element name="core">
+                                                <xs:complexType>
+                                                        <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                        <xs:attribute name="speed" type="xs:string" use="required"/>
+                                                                </xs:extension>
+                                                        </xs:simpleContent>
+                                                </xs:complexType>
+                                                </xs:element>
+                                                <xs:element name="ram">
+                                                        <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                        <xs:extension base="xs:string">
+                                                                                <xs:attribute name="type" type="xs:string" use="required"/>
+                                                                        </xs:extension>
+                                                                </xs:simpleContent>
+                                                        </xs:complexType>
+                                                </xs:element>
+                                                <xs:element name="rom">
+                                                        <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                        <xs:extension base="xs:string">
+                                                                                <xs:attribute name="company" type="xs:string" fixed="HP"/>
+                                                                        </xs:extension>
+                                                                </xs:simpleContent>
+                                                        </xs:complexType>
+                                                </xs:element>
+                                                </xs:sequence>
+                                        </xs:complexType>
+                                </xs:element>
+                        </xs:sequence>
+                </xs:complexType>
+        </xs:element>
+</xs:schema>
+
+
+
+
+Set 13
+
+
+Book.dtd
+<!ELEMENT book (item)+>
+<!ELEMENT item (title,author,ISBN,publisher,edition,price)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT ISBN (#PCDATA)>
+<!ELEMENT publisher (#PCDATA)>
+<!ELEMENT edition (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+
+
+Book.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="Book.xsl"?>
+<!DOCTYPE book SYSTEM "Book.dtd">
+<book>
+        <item>
+                <title>Data Structures</title>
+                <author>Rema Thereja</author>
+                <ISBN>1024</ISBN>
+                <publisher>Pearson</publisher>
+                <edition>4</edition>
+                <price>350</price>
+        </item>
+        <item>
+                <title>OOP with C++</title>
+                <author>Bharth Kamal</author>
+                <ISBN>2048</ISBN>
+                <publisher>Cengage</publisher>
+                <edition>8</edition>
+                <price>540</price>
+        </item>
+        <item>
+                <title>Data Base Management System</title>
+                <author>Raghu Ram Krishna</author>
+                <ISBN>512</ISBN>
+                <publisher>PSR</publisher>
+                <edition>3</edition>
+                <price>450</price>
+        </item>
+        <item>
+                <title>Python Programming</title>
+                <author>Eric Matthes</author>
+                <ISBN>1540</ISBN>
+                <publisher>Pearson</publisher>
+                <edition>11</edition>
+                <price>675</price>
+        </item>
+</book>
+
+
+Book.xsl
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="/">
+<html>
+<body>
+        <h1>Books List</h1>
+        <table border="1">
+        <tr bgcolor="grey" style="color: white;">
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Publisher</th>
+                <th>Edition</th>
+                <th>Price</th>
+        </tr>
+        <xsl:for-each select="book/item">
+        <tr>
+                <td bgcolor="yellow"><xsl:value-of select="title"/></td>
+                <td bgcolor="aqua"><xsl:value-of select="author"/></td>
+                <td bgcolor="orange"><xsl:value-of select="ISBN"/></td>
+                <td bgcolor="lime"><xsl:value-of select="publisher"/></td>
+                <td bgcolor="olive"><xsl:value-of select="edition"/></td>
+                <td bgcolor="fuchsia"><xsl:value-of select="price"/></td>
+        </tr>
+        </xsl:for-each>
+        </table>
+</body>
+</html>
+</xsl:template>
+</xsl:stylesheet>
+
+
+Set 14
+bean.java
+import java.awt.*;
+import java.awt.event.*;
+import java.io.Serializable;
+
+
+public final class bean extends Canvas implements Serializable  {
+    private Color color; 
+    private boolean rectangular; 
+    public bean() {
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent me) {
+                change();
+            }
+        });
+        rectangular = false;
+        setSize(200, 100);
+        change();
+    }
+    public boolean getRectangular()     {
+        return rectangular;
+    }
+    public void setRectangular(boolean rectangular)    {
+        this.rectangular = rectangular;
+        repaint();
+    }
+    public void change()    {
+        color = randomColor();
+        if (getRectangular()) {
+            setRectangular(false);
+        } else {
+            setRectangular(true);
+        }
+        repaint();
+    }
+    private Color randomColor() {
+        int r = (int)(255*Math.random());
+        int g = (int)(255*Math.random());
+        int b = (int)(255*Math.random());
+        return new Color(r, g, b);
+    }
+    public void paint(Graphics g) {
+        Dimension d = getSize();
+        int h = d.height;
+        int w = d.width;
+        g.setColor(color);
+        if(rectangular) {
+            g.fillRect(0, 0, w-1, h-1);
+        } else {
+            g.fillOval(0, 0, w-1, h-1);
+        }
+    }
+}
+
+
+Set 15
+Index.html
+
+
+—----
+
+
+MyServlet.java
+import java.io.*;
+
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+
+public class MyServlet extends HttpServlet {
+
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+
+        String firstName = request.getParameter("firstName");
+        String middleName = request.getParameter("middleName");
+        String lastName = request.getParameter("lastName");
+        int age = Integer.parseInt(request.getParameter("age"));
+        String gender = request.getParameter("gender");
+        String email = request.getParameter("email");
+
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<html><head><title>MyServlet Output</title></head><body>");
+        out.println("<h1>Output from MyServlet</h1>");
+        out.println("<p>First Name: " + firstName + "</p>");
+        out.println("<p>Middle Name: " + middleName + "</p>");
+        out.println("<p>Last Name: " + lastName + "</p>");
+        out.println("<p>Age: " + age + "</p>");
+        out.println("<p>Gender: " + gender + "</p>");
+        out.println("<p>Email: " + email + "</p>");
+        out.println("</body></html>");
+
+
+        out.close();
+    }
+}
+
+
+web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app> 
+  <servlet>
+    <servlet-name>MyServlet</servlet-name>
+    <servlet-class>MyServlet</servlet-class>
+    <init-param>
+      <param-name>db-name</param-name>
+      <param-value>cheppanu</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyServlet</servlet-name>
+    <url-pattern>/MyServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
+
+
+Set 16
+InitParameterDemo.java
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+
+public class InitParameterDemo extends HttpServlet {
+
+
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+
+
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
+        ServletConfig conf = getServletConfig();
+    String dbUsername = conf.getInitParameter("db-username");
+    String dbPassword = getServletContext().getInitParameter("db-password");
+    String portNumber = getServletContext().getInitParameter("port-number");
+
+
+    out.println("<html>");
+    out.println("<head><title>Init Parameter Demo</title></head>");
+    out.println("<body>");
+    out.println("<h1>Init Parameters</h1>");
+    out.println("<p>db-username: " + dbUsername + "</p>");
+    out.println("<p>db-password: " + dbPassword + "</p>");
+    out.println("<p>port-number: " + portNumber + "</p>");
+    out.println("</body></html>");
+  }
+}
+web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+<servlet>
+        <servlet-name>configure</servlet-name>
+        <servlet-class>InitParameterDemo</servlet-class>
+  <init-param>
+    <param-name>db-username</param-name>
+    <param-value>cheppanu</param-value>
+  </init-param>
+  <init-param>
+    <param-name>db-password</param-name>
+    <param-value>chi..po..</param-value>
+  </init-param>
+  <init-param>
+    <param-name>port-number</param-name>
+    <param-value>8080</param-value>
+  </init-param>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>configure</servlet-name>
+        <url-pattern>/confg</url-pattern>
+    </servlet-mapping>
+</web-app>
+
+
+Set 17
+ContxParameterDemo.java
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+
+public class ContxParameterDemo extends HttpServlet {
+
+
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+
+
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
+    String dbUsername = getServletContext().getInitParameter("db-username");
+    String dbPassword = getServletContext().getInitParameter("db-password");
+    String portNumber = getServletContext().getInitParameter("port-number");
+
+
+    out.println("<html>");
+    out.println("<head><title>context Parameter Demo</title></head>");
+    out.println("<body>");
+    out.println("<h1>context Parameters</h1>");
+    out.println("<p>db-username: " + dbUsername + "</p>");
+    out.println("<p>db-password: " + dbPassword + "</p>");
+    out.println("<p>port-number: " + portNumber + "</p>");
+    out.println("</body></html>");
+  }
+}
+web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+  <context-param>
+    <param-name>db-username</param-name>
+    <param-value>cheppanu</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db-password</param-name>
+    <param-value>chi..po..</param-value>
+  </context-param>
+  <context-param>
+    <param-name>port-number</param-name>
+    <param-value>8080</param-value>
+  </context-param>
+</web-app>
+
+
+Set 18
+web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+   <servlet>
+                <servlet-name>cs</servlet-name>
+                <servlet-class>createSession</servlet-class>
+        </servlet>
+        <servlet-mapping>
+                <servlet-name>cs</servlet-name>
+                <url-pattern>/create</url-pattern>
+        </servlet-mapping>
+        <servlet>
+                <servlet-name>us</servlet-name>
+                <servlet-class>useSession</servlet-class>
+        </servlet>
+        <servlet-mapping>
+                <servlet-name>us</servlet-name>
+                <url-pattern>/use</url-pattern>
+        </servlet-mapping>
+</web-app>
+
+
+index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Session</title>
+  </head>
+  <body>
+    <center>
+      <br /><br /><br /><br /><br />
+      <form action="create" method="post">
+        <label>Enter bg-color:</label>
+        <input type="text" name="bgc" /><br /><br />
+        <label>Enter color:</label>
+        <input type="text" name="clr" /><br /><br />
+        <label>Enter font-size:</label>
+        <input type="number" name="fos" /><br /><br />
+        <button type="submit">create Session</button>
+      </form>
+      <br /><br />
+      <button onclick="window.location.href='use'">use Session</button>
+    </center>
+  </body>
+</html>
+
+
+createSession.java
+import java.io.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+
+
+public class createSession extends HttpServlet {
+        public void doPost(HttpServletRequest request, HttpServletResponse response)
+                        throws ServletException, IOException {
+                PrintWriter out = response.getWriter();
+                HttpSession ses = request.getSession(true);
+                response.setContentType("text/html");
+                String bg = request.getParameter("bgc");
+                String cl = request.getParameter("clr");
+                String fs = request.getParameter("fos");
+
+
+                ses.setAttribute("bg", bg);
+                ses.setAttribute("cl", cl);
+                ses.setAttribute("fs", fs);
+                out.println("<html><body><center><p><br><br><br>Session created...!</p>");
+        }
+}
+useSession.java
+import java.io.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+
+
+public class useSession extends HttpServlet {
+        public void doGet(HttpServletRequest request, HttpServletResponse response)
+                        throws IOException, ServletException {
+                PrintWriter out = response.getWriter();
+                HttpSession ses = request.getSession();
+                String bgcolor = ses.getAttribute("bg");
+                String color = ses.getAttribute("cl");
+                String fontsize = ses.getAttribute("fs");
+                out.println("<html><body><center><p><br><br><br>Session used...!</p>");
+                out.println("<p>The value of 'bg-color' is " + bgcolor + "</p>");
+                out.println("<p>The value of 'color' is " + color + "</p>");
+                out.println("<p>The value of 'font-size' is " + fontsize + "</p>");
+                out.println("</center></body></html>");
+        }
+}
+
+
+Set 19 
+
+
+index.html
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <form action="Login" method="post">
+        Enter username: <input type="text" name="n1" />
+        Enter password: <input type="password" name="p1" />
+        <input type="submit" value="click" />
+    </form>
+</body>
+</html>
+
+
+login.java
+
+
+import javax.servlet.http.*;
+import java.io.*;
+
+
+import javax.servlet.*;
+
+
+public class login extends HttpServlet{
+    public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+        String name = req.getParameter("n1");
+        String pass = req.getParameter("p1");
+        Cookie c1 = new Cookie("bharath", "1234");
+        res.addCookie(c1);
+        Cookie c2 = new Cookie("kamal", "1234");
+        res.addCookie(c2);
+        Cookie c3 = new Cookie("Sampath", "1234");
+        res.addCookie(c3);
+        Cookie c4 = new Cookie("Revi", "1234");
+        res.addCookie(c4);
+        Cookie[] carray = req.getCookies();
+        int flag = 0;
+        for(int i = 0; i < 4; i++) {
+            if(carray[i].getName().equals(name) && carray[i].getValue().equals(pass)) {
+                flag = 1;
+            }
+        }
+        if (flag == 1) {
+            PrintWriter out = res.getWriter();
+            out.println("<h1>user validated</h1>");
+        }
+        else {
+            PrintWriter out = res.getWriter();
+            out.println("<h1>user NOT validated</h1>");
+        }
+    }
+}
+
+
+
+
+Web.xml
+<web-app>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+</web-app>
+
+
+NOTE: 
+For execution of servlet program
+“export CLASSPATH=.:/opt/tomcat/lib/servlet-api.jar”
+For execution of jsp and jdbc programs
+“export CLASSPATH=.:/opt/tomcat/lib/jsp-api.jar:/opt/tomcat/lib/(Drivers)”
+Drivers-”place your installed JDBC drivers on ubuntu”
+And include these commands on every execution of our new jsp or servlet program.
+
+
+Set-20 and 21 are the same as last two weeks of our record .

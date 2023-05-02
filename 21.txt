@@ -1,0 +1,39 @@
+ Login.html
+<form action="login.jsp" method="post">
+<label for="username">Username:</label>
+<input type="text" name="username" required /><br><br>
+<label for="password">Password:</label>
+<input type="password" name="password" required /><br><br>
+<input type="submit" value="Login" />
+</form>
+
+Login.jsp
+<%@ page import="java.sql.*" %>
+<%
+String name = request.getParameter("username");
+String password = request.getParameter("password");
+String url = "jdbc:mysql://localhost:3306/jdbc";
+String un = "root";
+String pw = "root";
+Connection conn = DriverManager.getConnection(url, un, pw);
+String sql = "SELECT * FROM users WHERE name=? AND
+password=?";
+PreparedStatement stmt = conn.prepareStatement(sql);
+stmt.setString(1, name);
+stmt.setString(2, password);
+ResultSet rs = stmt.executeQuery();
+if (rs.next()) {
+ String nm = rs.getString("name");
+String mail = rs.getString("email");
+String phone = rs.getString("phno");
+out.println("<p>Login successful!</p>");
+out.println("<p>Welcome, " + nm + "!<br>");
+out.println("Email: " + mail + "<br>");
+out.println("Phone: " + phone + "</p>");
+ } else {
+out.println("<p>Invalid username or password.</p>");
+}
+rs.close();
+ stmt.close();
+ conn.close();
+%>

@@ -1,0 +1,82 @@
+Set 13
+
+Book.dtd
+<!ELEMENT book (item)+>
+<!ELEMENT item (title,author,ISBN,publisher,edition,price)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT ISBN (#PCDATA)>
+<!ELEMENT publisher (#PCDATA)>
+<!ELEMENT edition (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+
+Book.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="Book.xsl"?>
+<!DOCTYPE book SYSTEM "Book.dtd">
+<book>
+	<item>
+		<title>Data Structures</title>
+		<author>Rema Thereja</author>
+		<ISBN>1024</ISBN>
+		<publisher>Pearson</publisher>
+		<edition>4</edition>
+		<price>350</price>
+	</item>
+	<item>
+		<title>OOP with C++</title>
+		<author>Bharth Kamal</author>
+		<ISBN>2048</ISBN>
+		<publisher>Cengage</publisher>
+		<edition>8</edition>
+		<price>540</price>
+	</item>
+	<item>
+		<title>Data Base Management System</title>
+		<author>Raghu Ram Krishna</author>
+		<ISBN>512</ISBN>
+		<publisher>PSR</publisher>
+		<edition>3</edition>
+		<price>450</price>
+	</item>
+	<item>
+		<title>Python Programming</title>
+		<author>Eric Matthes</author>
+		<ISBN>1540</ISBN>
+		<publisher>Pearson</publisher>
+		<edition>11</edition>
+		<price>675</price>
+	</item>
+</book>
+
+Book.xsl
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="/">
+<html>
+<body>
+	<h1>Books List</h1>
+	<table border="1">
+	<tr bgcolor="grey" style="color: white;">
+		<th>Title</th>
+		<th>Author</th>
+		<th>ISBN</th>
+		<th>Publisher</th>
+		<th>Edition</th>
+		<th>Price</th>
+	</tr>
+	<xsl:for-each select="book/item">
+	<tr>
+		<td bgcolor="yellow"><xsl:value-of select="title"/></td>
+		<td bgcolor="aqua"><xsl:value-of select="author"/></td>
+		<td bgcolor="orange"><xsl:value-of select="ISBN"/></td>
+		<td bgcolor="lime"><xsl:value-of select="publisher"/></td>
+		<td bgcolor="olive"><xsl:value-of select="edition"/></td>
+		<td bgcolor="fuchsia"><xsl:value-of select="price"/></td>
+	</tr>
+	</xsl:for-each>
+	</table>
+</body>
+</html>
+</xsl:template>
+</xsl:stylesheet>

@@ -1,0 +1,29 @@
+Simlalry not exact
+set8.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE movies SYSTEM "movie.dtd">
+<movies>
+	<movie>
+		<title release="2020">abcd</title>
+		<hero multi="false" age="25">Bharath</hero>
+		<director mcount="1">Rakesh</director>
+		<genre type="Entertainer">comedy</genre>
+	</movie>
+</movies>
+
+
+Set8.dtd
+
+<!ELEMENT movies (movie)+>
+<!ELEMENT movie (title,hero,director,genre)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT hero (#PCDATA)>
+<!ELEMENT director (#PCDATA)>
+<!ELEMENT genre (#PCDATA)>
+<!ATTLIST title release CDATA "2019"> 
+<!ATTLIST hero 
+	multi CDATA "false"
+	age CDATA #IMPLIED
+>
+<!ATTLIST director mcount CDATA #REQUIRED>
+<!ATTLIST genre type CDATA #FIXED "Entertainer">

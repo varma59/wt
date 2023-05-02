@@ -1,0 +1,43 @@
+Set 17
+ContxParameterDemo.java
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class ContxParameterDemo extends HttpServlet {
+
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
+    String dbUsername = getServletContext().getInitParameter("db-username");
+    String dbPassword = getServletContext().getInitParameter("db-password");
+    String portNumber = getServletContext().getInitParameter("port-number");
+
+    out.println("<html>");
+    out.println("<head><title>context Parameter Demo</title></head>");
+    out.println("<body>");
+    out.println("<h1>context Parameters</h1>");
+    out.println("<p>db-username: " + dbUsername + "</p>");
+    out.println("<p>db-password: " + dbPassword + "</p>");
+    out.println("<p>port-number: " + portNumber + "</p>");
+    out.println("</body></html>");
+  }
+}
+web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+  <context-param>
+    <param-name>db-username</param-name>
+    <param-value>cheppanu</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db-password</param-name>
+    <param-value>chi..po..</param-value>
+  </context-param>
+  <context-param>
+    <param-name>port-number</param-name>
+    <param-value>8080</param-value>
+  </context-param>
+</web-app>

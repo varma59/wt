@@ -1,0 +1,66 @@
+❖users.jsp
+<%@ page import="java.sql.*" %>
+<html>
+<head>
+<title>Database Query</title>
+</head>
+<body>
+<h2>Users:</h2>
+<%
+String url = "jdbc:mysql://localhost:3306/jdbc";
+String username = "root";
+String password = "root";
+String driver = "com.mysql.jdbc.Driver";
+Connection conn = DriverManager.getConnection(url, username,
+password);
+Class.forName(driver);
+Statement stmt = conn.createStatement();
+String sql = "SELECT * FROM users";
+ResultSet rs = stmt.executeQuery(sql);
+while (rs.next()) {
+String name = rs.getString("name");
+String email = rs.getString("email");
+String phone = rs.getString("phno");
+out.println("Name: " + name + ", Email: " + email + ", Phone: " +
+phone + "<br>");
+}
+rs.close();
+stmt.close();
+conn.close();
+%>
+</body>
+</html>
+
+❖register.jsp
+<%@ page import="java.sql.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Success</title>
+</head>
+<body>
+<%
+String name = request.getParameter("name");
+String email = request.getParameter("email");
+String phone = request.getParameter("phone");
+String password = request.getParameter("password");
+String url = "jdbc:mysql://localhost:3306/jdbc";
+String un = "root";
+String pw = "root";
+Connection conn = DriverManager.getConnection(url, un, pw);
+String sql = "INSERT INTO users (name, email, phno, password)
+VALUES (?, ?, ?, ?)";
+PreparedStatement pstmt = conn.prepareStatement(sql);
+pstmt.setString(1, name);
+pstmt.setString(2, email);
+pstmt.setString(3, phone);
+pstmt.setString(4, password);
+pstmt.executeUpdate();
+pstmt.close();
+conn.close();
+%>
+<h2>Registration Success</h2>
+<p>Thank you for registering, <%= name %>! Your details have been
+added to our database. </p>
+</body>
+</html>

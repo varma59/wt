@@ -1,0 +1,56 @@
+SET-11
+
+Set11.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<theatre xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="set11.1.xsd">
+         <movie>
+        <name>KILL BILL</name>
+        <ticket>80</ticket>
+        <rating max="5">4.5</rating>
+    </movie>
+    <movie>
+        <name>KILL BILL1</name>
+        <ticket>50</ticket>
+        <rating max="5">4.5</rating>
+    </movie>
+    <movie>
+        <name>KILL BILL2</name>
+        <ticket>40</ticket>
+        <rating max="5">4.5</rating>
+    </movie>
+
+</theatre>
+
+
+Set11.1.xsd
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="theatre">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="movie" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string" />
+                            <xs:element name="ticket" type="xs:string" />
+                            <xs:element name="rating">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="max" type="xs:string" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+</xs:schema>

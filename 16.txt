@@ -1,0 +1,52 @@
+Set 16
+InitParameterDemo.java
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class InitParameterDemo extends HttpServlet {
+
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
+        ServletConfig conf = getServletConfig();
+    String dbUsername = conf.getInitParameter("db-username");
+    String dbPassword = getServletContext().getInitParameter("db-password");
+    String portNumber = getServletContext().getInitParameter("port-number");
+
+    out.println("<html>");
+    out.println("<head><title>Init Parameter Demo</title></head>");
+    out.println("<body>");
+    out.println("<h1>Init Parameters</h1>");
+    out.println("<p>db-username: " + dbUsername + "</p>");
+    out.println("<p>db-password: " + dbPassword + "</p>");
+    out.println("<p>port-number: " + portNumber + "</p>");
+    out.println("</body></html>");
+  }
+}
+web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+<servlet>
+        <servlet-name>configure</servlet-name>
+        <servlet-class>InitParameterDemo</servlet-class>
+  <init-param>
+    <param-name>db-username</param-name>
+    <param-value>cheppanu</param-value>
+  </init-param>
+  <init-param>
+    <param-name>db-password</param-name>
+    <param-value>chi..po..</param-value>
+  </init-param>
+  <init-param>
+    <param-name>port-number</param-name>
+    <param-value>8080</param-value>
+  </init-param>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>configure</servlet-name>
+        <url-pattern>/confg</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -1,0 +1,95 @@
+date.html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Display Date</title>
+  <script>
+    function displayDate() {
+      var currentDate = new Date();
+      var formattedDate = currentDate.toDateString();
+      document.getElementById("frmDater").value = formattedDate;
+    }
+  </script>
+</head>
+<body>
+  <center>
+    <h1>Display Date</h1>
+    <button onclick="displayDate()">Date</button>
+    <input type="text" id="frmDater">
+  </center>
+</body>
+</html>
+Fact.html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Factorial</title>
+  <script>
+    function calculateFactorial() {
+      var num = prompt('Enter a number:');
+      var result = 1;
+      
+      for (var i = 1; i <= num; i++) {
+        result *= i;
+      }
+      
+      alert('Factorial of ' + num + ' is ' + result);
+    }
+  </script>
+</head>
+<body>
+  <h1>Factorial</h1>
+  
+  <button onclick="calculateFactorial()">Calculate Factorial</button>
+</body>
+</html>
+table.html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Table</title>
+  <script>
+    function displayMultiplicationTable() {
+      var num = prompt('Enter a number:');
+      var table = '';
+      
+      for (var i = 1; i <= 10; i++) {
+        var result = num * i;
+        table += num + ' x ' + i + ' = ' + result + '\n';
+      }
+      
+      alert(table);
+    }
+  </script>
+</head>
+<body>
+  <h1>Multiplication Table</h1>
+  
+  <button onclick="displayMultiplicationTable()">Display Multiplication Table</button>
+</body>
+</html>
+sumofnum.html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Numbers</title>
+  <script>
+    function calculateSum() {
+       var num = prompt('Enter a number:');
+       Number(num)
+        for(i=1;i<=num;i++){
+            var num2 =  prompt("Enter number");
+            Number(num2)
+            Number(num3)
+           var num3 = num2 + num3;
+        }
+        alert(num3)
+    }
+  </script>
+</head>
+<body>
+  <h1>Sum of Numbers</h1>
+  
+  <button onclick="calculateSum()">Calculate Sum</button>
+</body>
+</html>

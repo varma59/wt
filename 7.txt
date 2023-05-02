@@ -1,0 +1,38 @@
+SET 7
+
+Set7.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book SYSTEM "set7.dtd">
+<book>
+    <item>
+        <title words=”3”>DS</title>
+        <author>MANA</author>
+        <isbn>106462</isbn>
+        <publisher>jgh</publisher>
+        <edition>2</edition>
+        <price>500</price>
+    </item>
+    <item>
+        <title words=”3”>DS</title>
+        <author>MANA</author>
+        <isbn>106462</isbn>
+    </item>
+    <item>
+        <title words=”3”>DS</title>
+        <author>MANA</author>
+        <isbn>106462</isbn>
+    </item>
+</book>
+
+
+
+Set7.dtd
+
+
+<!ELEMENT book (item)+>
+<!ELEMENT item (title, author, isbn)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT isbn (#PCDATA)>
+<!ATTLIST title words #IMPLIED>

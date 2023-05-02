@@ -1,0 +1,280 @@
+cat.html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Myntra Special Collections</title>
+  <link rel="stylesheet" href="user.css"
+</head>
+<body bgcolor="#FFB6C1">
+<center>
+<h1>Myntra Special Collections</h1>
+<div class="dresses-container">
+    <div class="dress">
+      <img src="files\1.jpg" alt="Dress 1">
+      <h2>Dress 1</h2>
+      <p>Price: $50</p>
+      <a href="/dress1">View</a>
+    </div>
+    <div class="dress">
+      <img src="files\2.jpg" alt="Dress 2">
+      <h2>Dress 2</h2>
+      <p>Price: $70</p>
+      <a href="/dress2">View</a>
+    </div>
+    <div class="dress">
+      <img src="files\3.jpg" alt="Dress 3">
+      <h2>Dress 3</h2>
+      <p>Price: $90</p>
+      <a href="/dress3">View</a>
+    </div>
+  </div>    
+</center>
+</body>
+</html>
+login.html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>login and Registrtation Page - Myntra</title>
+        <meta name="theme-color" content="#fffff">
+        <link rel="shortcut icon " type="image/x-icon " href="/home/student/Desktop/20331A0564/week1 and 2/files/fav.png" />
+        <meta name="language " content="English ">
+        <link rel="stylesheet" href="/home/student/Desktop/20331A0564/week1 and 2/main.css"
+    </head>
+
+    <body bgcolor="#FFB6C1">
+        <div id="logo"> 
+            <a href="/home/student/Desktop/20331A0564/week1 and 2/main.html"><img src="https://constant.myntassets.com/web/assets/img/icon.5d108c858a0db793700f0be5d3ad1e120a01a500_2021.png"/></a>
+        </div>
+        <center>
+         <h1>Myntra Account Page</h1>
+        </center>
+        <center>
+            <table align="center" bgcolor="lightblue">
+             <tr>
+                <td><h4>Username</td>
+                <td><input type="text" ></td>
+                <td></td>
+                </tr>
+                <tr>
+                <td><h4>Password</td>
+                <td><input type="password"></td>
+                <td></td>
+                </tr>
+                
+                <tr>
+                <td>
+                <form method="post" action="catalog.html" >
+                <input type="submit" value="submit" >
+                </form>
+                </td>
+                <td>
+                <form method="post" action="userpro.html" >
+                <input type="submit" value="register" > &nbsp;&nbsp;
+                <input type="reset" value="reset"></form></td>
+                </tr>
+
+            </table>
+        </center> 
+    </body>
+</html>        
+main.css
+#logo{ 
+	position:fixed; 
+	top:0; 
+	left:0; 
+}
+header {
+	display: block;
+  }
+main.html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Online Shopping for Women, Men, Kids Fashion & Lifestyle - Myntra</title>
+        <meta name="theme-color" content="#fffff">
+        <link rel="shortcut icon " type="image/x-icon " href="/home/student/Desktop/20331A0564/week1 and 2/files/fav.png" />
+        <meta name="language " content="English ">
+        <link rel="stylesheet" href="/home/student/Desktop/20331A0564/week1 and 2/main.css"
+
+    </head>
+    <body>
+        <div id="logo"> 
+            <a href="/home/student/Desktop/20331A0564/week1 and 2/main.html"><img src="https://constant.myntassets.com/web/assets/img/icon.5d108c858a0db793700f0be5d3ad1e120a01a500_2021.png"/>
+        </div> 
+        <center>
+         <strong><h1>Welcome to Myntra.com! Happy Shopping</h1></strong>
+         <br>
+         <form>
+            <input type="search" placeholder="Search">
+            <button type="submit">Search</button>
+          </form>
+         <br>
+        <div id="header">
+            <header>
+                <h1>New Arrivals for Students</h1>
+                <a href="https://myntra.com"><img src="files\ban.jpg"></a>
+              </header>
+        </div>
+        <div id="footer">
+            <footer>
+            <h1>Login here for other operations</h1>
+            <form method="post" action="login.html" target=_blank>
+             <p>if No account Just Create it with on simple click on the below button</p><input type="submit" value="click here">  
+            </form>   
+            <br>                
+            </footer>
+        </div>
+        </center>    
+    </body>
+</html>
+order.html
+<html>
+<head><title>order conformation</title><M/head>
+<body bgcolor="pink">
+<center>
+<h1><b>Clothes Shoping</h1>
+<pre><strong>
+<b>Your order Is Conformed
+</strong></pre>
+<h2><b>THANK YOU</h2>
+    <h2><b>Visit Again</h2>  
+</center>
+</body></html>
+pay.html
+<html>
+<head><title>order conformation</title><M/head>
+<body bgcolor="pink">
+<center>
+<form id="payment-form" action="order.html">
+    <h1>Payment</h1>
+    <label for="card-number">Card Number</label>
+    <input type="text" id="card-number" name="card-number" placeholder="XXXX-XXXX-XXXX-XXXX">
+    
+    <label for="card-holder-name">Card Holder Name</label>
+    <input type="text" id="card-holder-name" name="card-holder-name">
+    
+    <label for="expiration-date">Expiration Date</label>
+    <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY">
+    
+    <label for="cvv">CVV</label>
+    <input type="text" id="cvv" name="cvv" placeholder="XXX">
+    
+    <label for="amount">Amount</label>
+    <input type="text" id="amount" name="amount" placeholder="$">
+    
+    <select id="payment-method" name="payment-method">
+      <option value="visa">Visa</option>
+      <option value="mastercard">MasterCard</option>
+      <option value="amex">American Express</option>
+      <option value="discover">Discover</option>
+    </select>
+    
+    <button type="submit" id="submit-payment" >Submit Payment</button>
+
+  <h1> If paymnet fail please wait we are on high demand and less products</h1>  
+  </form >
+</center>
+</body></html>
+ shop.html
+<html>
+<head><title>shopping cart by Myntra</title>
+</head>
+<body bgcolor="cyan">
+<center><h1>
+Shopping Cart</h1></center>
+<br><br><br><br><br>
+<table align="center">
+<tr>
+<td>Clothes</td>
+<td>
+<select >
+<optgroup label="select the types of clothes you want">
+<option value="Formal`">Formal
+<option value="Informal">Informal
+<option value="Hoodie">Hoodie
+<option value="Hats">Hats
+<option value="Shoes">Shoes
+<option value="jackets">jackets
+</optgroup>
+</select>
+</td></tr>
+<tr>
+<td>
+Quantity</t
+d>
+<td>
+<input type="text" id="q">
+</td></tr>
+<tr>
+<td></td>
+<td>
+<form method=post action="pay.html">
+<input type="submit" value=ok />
+</form>
+</td></tr>
+</table>
+<center>
+<pre>Cost of one Clothes start as has least as ~100 + shipping "Based on your location"</pre>
+</center>
+<body>
+</html>
+user.css
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+
+  .dresses-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .dress {
+    width: 300px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .dress img {
+    max-width: 100%;
+  }
+  userpro.html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Myntra Registration</title>
+  <link rel="stylesheet" href="user.css"
+</head>
+<body bgcolor="#FFB6C1">
+<center>
+<h1>Myntra Registration</h1>
+  <div class="form-grid">
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br>
+      
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone"><br>
+      
+      <label for="address">Address:</label>
+      <textarea id="address" name="address"></textarea><br>
+      
+      <input type="submit" value="Submit">
+    </form>
+  </div>  
+</center>
+</body>
+</html>
+

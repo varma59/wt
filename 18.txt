@@ -1,0 +1,90 @@
+Set 18
+web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+   <servlet>
+		<servlet-name>cs</servlet-name>
+		<servlet-class>createSession</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>cs</servlet-name>
+		<url-pattern>/create</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>us</servlet-name>
+		<servlet-class>useSession</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>us</servlet-name>
+		<url-pattern>/use</url-pattern>
+	</servlet-mapping>
+</web-app>
+
+index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Session</title>
+  </head>
+  <body>
+    <center>
+      <br /><br /><br /><br /><br />
+      <form action="create" method="post">
+        <label>Enter bg-color:</label>
+        <input type="text" name="bgc" /><br /><br />
+        <label>Enter color:</label>
+        <input type="text" name="clr" /><br /><br />
+        <label>Enter font-size:</label>
+        <input type="number" name="fos" /><br /><br />
+        <button type="submit">create Session</button>
+      </form>
+      <br /><br />
+      <button onclick="window.location.href='use'">use Session</button>
+    </center>
+  </body>
+</html>
+
+createSession.java
+import java.io.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+
+public class createSession extends HttpServlet {
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
+		HttpSession ses = request.getSession(true);
+		response.setContentType("text/html");
+		String bg = request.getParameter("bgc");
+		String cl = request.getParameter("clr");
+		String fs = request.getParameter("fos");
+
+		ses.setAttribute("bg", bg);
+		ses.setAttribute("cl", cl);
+		ses.setAttribute("fs", fs);
+		out.println("<html><body><center><p><br><br><br>Session created...!</p>");
+	}
+}
+useSession.java
+import java.io.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+
+public class useSession extends HttpServlet {
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+		PrintWriter out = response.getWriter();
+		HttpSession ses = request.getSession();
+		String bgcolor = ses.getAttribute("bg");
+		String color = ses.getAttribute("cl");
+		String fontsize = ses.getAttribute("fs");
+		out.println("<html><body><center><p><br><br><br>Session used...!</p>");
+		out.println("<p>The value of 'bg-color' is " + bgcolor + "</p>");
+		out.println("<p>The value of 'color' is " + color + "</p>");
+		out.println("<p>The value of 'font-size' is " + fontsize + "</p>");
+		out.println("</center></body></html>");
+	}
+}
